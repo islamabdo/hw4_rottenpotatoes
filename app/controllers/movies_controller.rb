@@ -66,6 +66,9 @@ class MoviesController < ApplicationController
 
   def fbdirector
     @dmovie = Movie.find params[:id]
+    if @dmovie.director == 'N/A'
+       redirect_to movies_path
+    end
     #@dmovies = Movie.where("director=#{@dmovie.director}")
     #@dmovies = Movie.find_by_director("@dmovie.director")
   end
